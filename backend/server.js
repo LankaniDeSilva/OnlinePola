@@ -8,9 +8,7 @@ const multer = require('multer');
 const app = express();
 
 //import route
-const NoticeRoutes = require('./Routes/AdminNotice');
-const PDFRoutes = require('./Routes/AdminPDF');
-
+const CartRoutes = require('./Routes/AddCart');
 
 
 
@@ -19,14 +17,7 @@ app.use(bodyParser.json());
 app.use(cors());
 //app.use(multer());
 
-app.use(NoticeRoutes);
-app.use(PDFRoutes);
-
-
-app.use(StudentRoute);
-app.use(ResearchTopic);
-
-
+app.use(CartRoutes);
 
 
 const PORT = 8001;

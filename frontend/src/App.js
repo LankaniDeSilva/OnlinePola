@@ -1,25 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from "react";
+//import "../bootstrap.min.css";
+import {BrowserRouter,Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  import Header from "./Component/Header";
+  import Footer from "./Component/footer";
+  import ItemAdd from "./Component/ItemAdd";
+  import Cart from "./Component/Cart";
+  import CartAdd from "./Component/CartAdd";
+  import ViewCart from "./Component/ViewCart";
 
-export default App;
+ 
+ 
+
+  
+
+
+export default class App extends Component{
+   render(){
+    return (
+      <BrowserRouter>
+        <div>
+         
+           <Header/>
+
+            {/*pamitha */}
+             <Route path="/"  exact component={Cart}></Route>
+             
+             <Route path="/edit/:id"  exact component={CartAdd}></Route>
+             <Route path="/edit/:id"  exact component={ViewCart}></Route>
+           
+    
+         
+
+             
+
+
+
+
+            {/*Lankani */}
+
+      
+            
+
+            
+
+
+            {/*Ayeshi */}
+
+
+
+
+
+
+            {/*Akeel */}
+         
+      
+
+        
+  
+        
+            <Footer/>
+           
+         </div>
+      </BrowserRouter> 
+     );
+    }
+ }
+
