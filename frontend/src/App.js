@@ -9,6 +9,9 @@ import {BrowserRouter,Route } from "react-router-dom";
   import CartAdd from "./Component/CartAdd";
   import ViewCart from "./Component/ViewCart";
 
+
+  import Shipping from "./Component/Shipping";
+
  
  
 
@@ -28,6 +31,7 @@ export default class App extends Component{
              
              <Route path="/edit/:id"  exact component={CartAdd}></Route>
              <Route path="/edit/:id"  exact component={ViewCart}></Route>
+            
            
     
          
@@ -39,6 +43,7 @@ export default class App extends Component{
 
             {/*Lankani */}
 
+            <Route path="/shipping"  exact component={Shipping}></Route>
       
             
 
