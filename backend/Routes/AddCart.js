@@ -122,7 +122,7 @@ router.get('/getcarts', (req,res) =>{
 
 //delete
 
-router.route("/deleteitem/:id").delete(async (req, res) =>{
+router.route("/deletecartitem/:id").delete(async (req, res) =>{
 
     let userId = req.params.id;
 

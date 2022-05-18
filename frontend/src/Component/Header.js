@@ -11,13 +11,15 @@ function header() {
         </a>
         </div>
         <div class="header-right">
-          <a class="active" href="#home">
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+          <a class="active" href="/home">
             Home
           </a>
-          <a href="#contact">Cart</a>
+          <a href="/cart">Cart</a>
           <a href="#contact">Delivery</a>
           <a href="#contact">Payment</a>
-          <a href="#about">About</a>
+          <a href="/additem">AddItem</a>
         </div>
       </div>
     </div>

@@ -25,8 +25,8 @@ export default class GetMark extends Component {
       }
     });
   }
-  onDelete = (id) => {
-    axios.delete(`http://localhost:8001/deleteitem/${id}`).then((res) => {
+  onDeleteCart = (id) => {
+    axios.delete(`http://localhost:8001/deletecartitem/${id}`).then((res) => {
       alert("Delete Successfully");
       this.retrivePosts();
     });
@@ -42,11 +42,12 @@ export default class GetMark extends Component {
   render() {
     return (
       <div >
+     
         <br />
       
         <button
                     type="button"
-                    className="btn btn-success"
+                    className="btn btn-warning"
                     style={{marginLeft:"200px"}}
                     onClick={() => this.onDelete()}
                   >
@@ -56,7 +57,7 @@ export default class GetMark extends Component {
                   <center>
         <table
          
-          style={{ background: " #99ff99",borderRadius:"40px", width: "1100px", padding:"50px" }}
+          style={{ width: "1100px", padding:"50px" }}
         >
           <thead>
             <tr>
@@ -66,20 +67,20 @@ export default class GetMark extends Component {
               <th scope="col">QUENTITY</th>
               <th scope="col">TOTAL</th>
             
-            </tr>
+            </tr> 
           </thead>
           <tbody>
-            {this.state.marks.map((marks, index,sum) => (
+            {this.state.marks.map((marks, index, sum) => (
               <tr>
                 <th scope="row">{index + 1}</th>
                 
                 <td>{marks.name}</td>
                 <td>{marks.price}</td>
                 <td>{marks.quentity/1000}KG</td>
-                <td>RS. {sum=+marks.quentity*marks.price/100}</td>
-                <td>{sum}</td>
+                <td>RS.{marks.quentity*marks.price/100}</td>
+                
               
-
+                 
                 <td>
                   
                  
@@ -87,14 +88,14 @@ export default class GetMark extends Component {
                   <button
                     type="button"
                     className="btn btn-warning"
-                    onClick={() => this.onDelete(marks._id)}
+                    onClick={() => this.onDeleteCart(marks._id)}
                   >
                     <i class="fa-solid fa-xmark"></i> 
                   </button>
                 </td>
-                
+                <hr/>
               </tr>
-              
+                
             ))}
             
           </tbody>

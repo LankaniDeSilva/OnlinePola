@@ -36,7 +36,7 @@ export default class GetCart extends Component {
   handleSearchArea = (e) => {
     const searchKey = e.currentTarget.value;
 
-    axios.get("http://localhost:8001/getcart").then((res) => {
+    axios.get("http://localhost:8001/getcarts").then((res) => {
       if (res.data.success) {
         this.filterData(res.data.existingPosts, searchKey);
       }

@@ -31,6 +31,12 @@ import axios from "axios";
          
           axios.post("http://localhost:8001/save/image", formdata).then(()=>{
                alert("Add Item to cart");
+
+               setname("");
+               setprice("");
+               setquentity("");
+               setimage("");
+
           }).catch((err)=>{
                alert(err)
           });

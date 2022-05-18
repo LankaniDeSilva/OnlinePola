@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class EditMark extends Component {
+export default class Item extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -36,13 +36,14 @@ export default class EditMark extends Component {
 
     axios.post(`http://localhost:8001/addcart`, data).then((res) => {
       if (res.data.success) {
-        alert("Marks Updated Successfully");
-        this.setState({
-          name: "",
-          price: "",
-          quentity: "",
+        alert("Item Added Successfully");
+       // this.setState({
+        //  name: "",
+        //  price: "",
+        //  quentity: "",
           
-        });
+        //});
+        window.location.reload(false);
       }
     }); 
   };
@@ -54,6 +55,7 @@ export default class EditMark extends Component {
     axios.get(`http://localhost:8001/cart/${id}`).then((res) =>{
       if(res.data.success){
         this.setState({
+          id:res.data.post.id,
           image:res.data.post.image,
           name:res.data.post.name,
           price:res.data.post.price,
@@ -88,13 +90,11 @@ export default class EditMark extends Component {
               >
               <table>  
                 <tr>
-                  <td>
-                  
-                  </td>
+                 
                 <td>
                
                
-                <input
+              <input
                   type="text"
                   id="name"
                   style={{
@@ -125,6 +125,7 @@ export default class EditMark extends Component {
                   value={this.state.price}
                   onChange={this.handleInputChange}
                 />
+                <lable>(100g)</lable>
                 
                 </td>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -163,9 +164,11 @@ export default class EditMark extends Component {
                 <td>
               
                 <center>
+                  <a href="">
                   <button type="submit" class="btn btn-primary" onClick={this.onSubmit}>
                     Submit
                   </button>
+                  </a>
                 </center>
                 </td>
                 </tr>
