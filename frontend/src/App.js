@@ -11,6 +11,11 @@ import Home from "./Component/Home";
   import CartAdd from "./Component/CartAdd";
   import ViewCart from "./Component/ViewCart";
 import AddItem from "./Component/ItemAdd";
+import CartEmail from "./Component/CartEmail";
+
+
+  import Shipping from "./Component/Shipping";
+import EmailSend from "./Component/EmailSend";
 
  
  
@@ -30,10 +35,12 @@ export default class App extends Component{
              <Route path="/cart"  exact component={Cart}></Route>
              <Route path="/login"  exact component={Login}></Route>
              <Route path="/home"  exact component={Home}></Route>
+             <Route path="/cartemail"  exact component={CartEmail}></Route>
              <Route path="/register"  exact component={Register}></Route>
              <Route path="/additem"  exact component={AddItem}></Route>
              <Route path="/edit/:id"  exact component={CartAdd}></Route>
              <Route path="/edit/:id"  exact component={ViewCart}></Route>
+            
            
     
          
@@ -45,6 +52,8 @@ export default class App extends Component{
 
             {/*Lankani */}
 
+            <Route path="/shipping"  exact component={Shipping}></Route>
+            <Route path="/email"  exact component={EmailSend}></Route>
       
             
 

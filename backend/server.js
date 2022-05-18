@@ -9,7 +9,12 @@ const app = express();
 
 //import route
 const CartRoutes = require('./Routes/AddCart');
+const CartEmailRoutes = require('./Routes/CartEmail');
 const LoginRoutes = require('./Routes/Login');
+
+const Shipping = require('./Routes/EasyPost');
+const EmailRoute = require('./Routes/EmailRoute');
+
 
 
 
@@ -19,7 +24,13 @@ app.use(cors());
 //app.use(multer());
 
 app.use(CartRoutes);
+app.use(CartEmailRoutes);
+
 app.use(LoginRoutes);
+
+app.use(Shipping);
+app.use(EmailRoute);
+
 
 
 const PORT = 8001;
