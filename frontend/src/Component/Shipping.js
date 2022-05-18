@@ -1,5 +1,4 @@
 import React from "react";
-// import Table from './Table';
 
 export default class Shipping extends React.Component {
   constructor(props) {
@@ -15,6 +14,8 @@ export default class Shipping extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
+
   handleSubmit(event) {
     event.preventDefault();
     fetch(`http://localhost:8001/rate`, {
@@ -26,22 +27,18 @@ export default class Shipping extends React.Component {
       },
     })
       .then((res) => {
-          this.setState({
-              data: res
-          })
+        this.setState({
+          data: res,
+        });
       })
       .then((data) => console.log(data))
       .catch((err) => console.error("Error", err));
   }
   handleChange(event) {
-    //console.log(event.target.value)
     switch (event.target.name) {
       case "to_name":
         this.setState({ to_name: event.target.value });
         break;
-    //   case "from_zip":
-    //     this.setState({ from_zip: event.target.value });
-    //     break;
       case "to_zip":
         this.setState({ to_zip: event.target.value });
         break;
@@ -52,22 +49,24 @@ export default class Shipping extends React.Component {
     }
   }
 
+
+
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-        <div className="mb-3" style={{
-                  margin: "40px",
-                  padding: "50px 20px",
-                  border:"2px solid #66ff66",
-                  backgroundColor: " ",
-                  borderRadius: "40px",
-                  width:"1000px"
-                  
-                }}>
-        <label className="form-label">
-            Name:
-        </label>
+          <div
+            className="mb-3"
+            style={{
+              margin: "40px",
+              padding: "50px 20px",
+              border: "2px solid #66ff66",
+              backgroundColor: " ",
+              borderRadius: "40px",
+              width: "1000px",
+            }}
+          >
+            <label className="form-label">Name:</label>
             <input
               type="text"
               className="form-control"
@@ -75,12 +74,10 @@ export default class Shipping extends React.Component {
               value={this.state.name}
               onChange={this.handleChange}
             />
-            <br/>
+            <br />
 
-          <label className="form-label">
-            To Address Zip Code:
-            </label>
-          
+            <label className="form-label">To Address Zip Code:</label>
+
             <input
               type="text"
               className="form-control"
@@ -88,10 +85,8 @@ export default class Shipping extends React.Component {
               value={this.state.to_zip}
               onChange={this.handleChange}
             />
-          <br/>
-          <label className="form-label">
-            Parcel Weight:
-            </label>
+            <br />
+            <label className="form-label">Parcel Weight:</label>
             <input
               type="number"
               className="form-control"
@@ -100,12 +95,10 @@ export default class Shipping extends React.Component {
               placeholder="In kg"
               onChange={this.handleChange}
             />
-          <br/>
-          <input type="submit" value="Submit" />
-        </div>
+            <br />
+            <input type="submit" value="Submit" />
+          </div>
         </form>
-
-        {/* <Table data={this.state.data} /> */}
       </div>
     );
   }

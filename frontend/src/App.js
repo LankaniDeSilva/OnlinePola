@@ -11,6 +11,7 @@ import {BrowserRouter,Route } from "react-router-dom";
 
 
   import Shipping from "./Component/Shipping";
+import EmailSend from "./Component/EmailSend";
 
  
  
@@ -44,6 +45,7 @@ export default class App extends Component{
             {/*Lankani */}
 
             <Route path="/shipping"  exact component={Shipping}></Route>
+            <Route path="/email"  exact component={EmailSend}></Route>
       
             
 

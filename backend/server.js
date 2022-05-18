@@ -10,6 +10,7 @@ const app = express();
 //import route
 const CartRoutes = require('./Routes/AddCart');
 const Shipping = require('./Routes/EasyPost');
+const EmailRoute = require('./Routes/EmailRoute');
 
 
 
@@ -20,6 +21,7 @@ app.use(cors());
 
 app.use(CartRoutes);
 app.use(Shipping);
+app.use(EmailRoute);
 
 
 const PORT = 8001;
