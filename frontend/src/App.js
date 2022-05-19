@@ -18,6 +18,7 @@ import SMSCart from "./Component/SMSCart";
   import Shipping from "./Component/Shipping";
 import EmailSend from "./Component/EmailSend";
 
+import Payment from "./Component/Payment";
  
  
 
@@ -65,7 +66,7 @@ export default class App extends Component{
             {/*Ayeshi */}
 
 
-
+            <Route path="/payment"  exact component={Payment}></Route>
 
 
 

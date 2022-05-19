@@ -13,6 +13,8 @@ const CartEmailRoutes = require('./Routes/CartEmail');
 const LoginRoutes = require('./Routes/Login');
 const CartSMSRoutes = require('./Routes/CartSMS');
 
+const PayRoute = require('./Routes/Pay');
+
 
 const EmailRoute = require('./Routes/EmailRoute');
 
@@ -30,6 +32,8 @@ app.use(LoginRoutes);
 
 
 app.use(EmailRoute);
+
+app.use(PayRoute);
 
 
 
