@@ -49,8 +49,7 @@ export default class GetCart extends Component {
     return (
       <div>
         <br />
-        
-          
+         
           <br />
           <center>
           <div className="search" style={{ width: "400px",paddingLeft:"50px" }}>

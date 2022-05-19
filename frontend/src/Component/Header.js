@@ -17,8 +17,12 @@ function header() {
             Home
           </a>
           <a href="/cart">Cart</a>
-          <a href="/email">CartEmail</a>
+          <a href="">Farmer</a>
           <a href="#contact">Delivery</a>
+
+          <a href="">Payment</a>
+          <a href=""></a>
+
           <a href="/payment">Payment</a>
           <a href="/additem">AddItem</a>
           <a href="/viewItem">ViewItem</a>

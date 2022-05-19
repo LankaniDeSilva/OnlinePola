@@ -38,7 +38,7 @@ export default class Login extends Component {
     
         axios.post("http://localhost:8001/Login", data)
         .then(res=>{alert(res.data.message)
-       
+            
             })
           }
 render(){

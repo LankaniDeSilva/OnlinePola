@@ -11,6 +11,7 @@ import Home from "./Component/Home";
   import ViewCart from "./Component/ViewCart";
 import AddItem from "./Component/ItemAdd";
 import CartEmail from "./Component/CartEmail";
+import SMSCart from "./Component/SMSCart";
 
   import Shipping from "./Component/Shipping";
 import EmailSend from "./Component/EmailSend";
@@ -34,6 +35,7 @@ export default class App extends Component{
 
             {/*pamitha */}
              <Route path="/cart"  exact component={Cart}></Route>
+             <Route path="/sms"  exact component={SMSCart}></Route>
              <Route path="/login"  exact component={Login}></Route>
              <Route path="/home"  exact component={Home}></Route>
              <Route path="/cartemail"  exact component={CartEmail}></Route>

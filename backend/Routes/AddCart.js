@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage: storage});
 
-router.post("/save/image", upload.single("file"), (req, res) => {
+router.post("/save/images", upload.single("file"), (req, res) => {
     const file = new files({
         name: req.body.name,
         price: req.body.price,
@@ -72,14 +72,6 @@ router.get("/cart/:id",(req,res) =>{
     });
 });
 
-/*router.route("/getimage/:id").get((req,res)=>{
-
-    files.findById(req.params.id).then((image)=>{
-         res.json(image)
-    }).catch((err)=>{
-         console.log(err)
-    })
-})*/
 
 router.get('/getimage/:id',(function (req, res) {
     id = req.params.id;
@@ -88,7 +80,7 @@ router.get('/getimage/:id',(function (req, res) {
         res.json(student);
     });
 }));
-//get posts
+//get cart
 
 router.get('/getcart', (req,res) =>{
     Cart.find().exec((err,files)=>{
@@ -121,7 +113,6 @@ router.get('/getcarts', (req,res) =>{
 });
 
 
-//delete
 
 router.route("/deletecartitem/:id").delete(async (req, res) =>{
 
