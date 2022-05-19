@@ -15,6 +15,8 @@ const LoginRoutes = require('./Routes/Login');
 const Shipping = require('./Routes/EasyPost');
 const EmailRoute = require('./Routes/EmailRoute');
 
+const PayRoute = require('./Routes/Pay');
+
 
 
 
@@ -30,6 +32,8 @@ app.use(LoginRoutes);
 
 app.use(Shipping);
 app.use(EmailRoute);
+
+app.use(PayRoute);
 
 
 
