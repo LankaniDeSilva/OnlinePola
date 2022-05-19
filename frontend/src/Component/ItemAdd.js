@@ -29,7 +29,7 @@ import axios from "axios";
           setquentity("");
           setimage("");
          
-          axios.post("http://localhost:8001/save/image", formdata).then(()=>{
+          axios.post("http://localhost:8001/save/images", formdata).then(()=>{
                alert("Add Item to cart");
 
                setname("");

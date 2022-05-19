@@ -17,10 +17,10 @@ function header() {
             Home
           </a>
           <a href="/cart">Cart</a>
-          <a href="/email">CartEmail</a>
+          <a href="">Farmer</a>
           <a href="#contact">Delivery</a>
-          <a href="#contact">Payment</a>
-          <a href="/additem">AddItem</a>
+          <a href="">Payment</a>
+          <a href=""></a>
         </div>
       </div>
     </div>

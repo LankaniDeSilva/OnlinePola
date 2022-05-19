@@ -1,9 +1,9 @@
 const express = require("express");
 const nodemailer = require('nodemailer');
 
-const app = express.Router();
+const router = express.Router();
 
-app.post('/cart',(req,res)=>{
+router.post('/cart',(req,res)=>{
  
     var transporter = nodemailer.createTransport({
         host: "smtp-mail.outlook.com",
@@ -19,9 +19,10 @@ app.post('/cart',(req,res)=>{
     });
  
     var mailOptions = {
-        from: process.env.MAIL_FROM,// sender address
-        to: req.body.to, // list of receivers
-        subject: req.body.subject, // Subject line
+        from: process.env.MAIL_FROM,
+        to: "pamithaa19@gmail.com", 
+        subject: req.body.subject, 
+        email: req.body.email,
         text:req.body.description,
         html: `
         <div style="padding:10px;border-style: ridge">
@@ -30,6 +31,7 @@ app.post('/cart',(req,res)=>{
         <ul>
             <li>Email: ${req.body.to}</li>
             <li>Subject: ${req.body.subject}</li>
+            <li>Sender Email: ${req.body.email}</li>
             <li>Message: ${req.body.description}</li>
         </ul>
         `
@@ -50,4 +52,4 @@ app.post('/cart',(req,res)=>{
       });
 });
 
-module.exports = app;
+module.exports = router;

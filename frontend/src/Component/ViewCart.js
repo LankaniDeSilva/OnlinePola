@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class GetMark extends Component {
+export default class View extends Component {
   constructor(props) {
     super(props);
 
@@ -44,7 +44,26 @@ export default class GetMark extends Component {
       <div >
      
         <br />
-      
+        <a href="/cartemail">
+        <button
+                    type="button"
+                    className="btn btn-primary"
+                    style={{marginLeft:"200px"}}
+                   
+                  >
+                    <i class="fa-solid fa-envelope"></i> Email
+                  </button>
+                 </a>
+                 <a href="/sms">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    style={{marginLeft:"200px"}}
+                   
+                  >
+                    <i class="fa-solid fa-comment-sms"></i> SMS
+                  </button>
+                  </a><br/><br/>
         <button
                     type="button"
                     className="btn btn-warning"

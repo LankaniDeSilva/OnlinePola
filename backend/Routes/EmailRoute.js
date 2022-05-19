@@ -11,7 +11,7 @@ app.post('/users',(req,res)=>{
         secureConnection: false, 
         port: 587, 
         tls: {
-        ciphers:'SSLv3'
+          rejectUnauthorized: false
         },
         auth: {
           user: process.env.MAIL_USER,

@@ -11,11 +11,10 @@ const app = express();
 const CartRoutes = require('./Routes/AddCart');
 const CartEmailRoutes = require('./Routes/CartEmail');
 const LoginRoutes = require('./Routes/Login');
+const CartSMSRoutes = require('./Routes/CartSMS');
 
-const Shipping = require('./Routes/EasyPost');
+
 const EmailRoute = require('./Routes/EmailRoute');
-
-
 
 
 //app middleware
@@ -25,10 +24,11 @@ app.use(cors());
 
 app.use(CartRoutes);
 app.use(CartEmailRoutes);
+app.use(CartSMSRoutes);
 
 app.use(LoginRoutes);
 
-app.use(Shipping);
+
 app.use(EmailRoute);
 
 

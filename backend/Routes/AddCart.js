@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage: storage});
 
-router.post("/save/image", upload.single("file"), (req, res) => {
+router.post("/save/images", upload.single("file"), (req, res) => {
     const file = new files({
         name: req.body.name,
         price: req.body.price,
@@ -71,14 +71,6 @@ router.get("/cart/:id",(req,res) =>{
     });
 });
 
-/*router.route("/getimage/:id").get((req,res)=>{
-
-    files.findById(req.params.id).then((image)=>{
-         res.json(image)
-    }).catch((err)=>{
-         console.log(err)
-    })
-})*/
 
 router.get('/getimage/:id',(function (req, res) {
     id = req.params.id;
@@ -87,7 +79,7 @@ router.get('/getimage/:id',(function (req, res) {
         res.json(student);
     });
 }));
-//get posts
+//get cart
 
 router.get('/getcart', (req,res) =>{
     Cart.find().exec((err,files)=>{
@@ -120,71 +112,6 @@ router.get('/getcarts', (req,res) =>{
 });
 
 
-//delete
 
-router.route("/deletecartitem/:id").delete(async (req, res) =>{
-
-    let userId = req.params.id;
-
-    await Cart.findByIdAndDelete(userId).then(()=>{
-        res.status(200).send({status: "User Delete"});
-    }).catch((err)=>{
-        console.log(err.message);
-        res.status(500).send({status: "Error with delete user", error: err.message});
-    })
-})
-
-router.route("/deleteitem").delete(async (req, res) =>{
-
-    await Cart.deleteMany().then(()=>{
-        res.status(200).send({status: "All delete"});
-    }).catch((err)=>{
-        console.log(err.message);
-        res.status(500).send({status: "Error with delete user", error: err.message});
-    })
-})
-
-router.route("/student/pdf").get((req,res)=>{
-
-    files.find().then((file)=>{
-         res.json(file)
-    }).catch((err)=>{
-         console.log(err)
-    })
-})
-
-router.post('/cart/save', (req,res) =>{
-
-    let select = new Cart(req.body);
-
-    select.save((err) =>{
-        if(err){
-            return res.status(400).json({
-                error:err
-            });
-        }
-        return res.status(200).json({
-            success:"Notice saved successfully"
-        });
-    });
-});
-
-
-router.route("/select/pdf/:id").put(async (req, res)=> {
-    let userId = req.params.id;
-
-    const {mark} = req.body.mark;
-
-    const updatestudent = {
-        mark
-    }
-
-    const update = await files.findByIdAndUpdate(userId, updatestudent).then(()=>{
-        res.status(200).send({status: "User Updated"})
-    }).catch((err)=>{
-        console.log(err);
-        res.status(500).send({status: "Error with Updating data", error: err.message});
-    })  
-})
 
 module.exports = router;
