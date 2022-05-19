@@ -21,6 +21,7 @@ function header() {
           <a href="#contact">Delivery</a>
           <a href="/payment">Payment</a>
           <a href="/additem">AddItem</a>
+          <a href="/viewItem">ViewItem</a>
         </div>
       </div>
     </div>

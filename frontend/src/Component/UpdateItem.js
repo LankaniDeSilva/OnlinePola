@@ -4,26 +4,38 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Typography from "@mui/material/Typography";
 import Input from "@mui/material/Input";
-import { useHistory } from "react-router-dom";
-import IconButton from "@mui/material/IconButton";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useParams ,useHistory,Redirect} from "react-router-dom";
 
-function AddItem() {
+function UpdateItem(props) {
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [showText, setShowText] = useState(false);
-
+  const paramID = useParams("");
   let navigate = useHistory();
+  const [currentItem, setCurrentItem] = useState({});
+  console.log('>>>',props)
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("token")) {
-  //   } else {
-  //     navigate.push("/notFound");
-  //   }
-  // }, []);
+  // const userID = "6270211872d0ce048dd73fb5";
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8001/cart/${paramID.id}` )
+      .then((res) => {
+          console.log(res)
+        setCurrentItem(res.data.post);
+
+        setName(res.data.post.name);
+        setDescription(res.data.post.quentity);
+        setPrice(res.data.post.price);
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const handleSubmit = (e) => {
     setShowText(false);
@@ -31,21 +43,20 @@ function AddItem() {
     const formData = new FormData();
     var form = document.getElementById("form");
 
-
+   
     formData.append("name", name);
           formData.append("price", price);
           formData.append("quentity", description);
           formData.append("file", image);
 
-
     console.log(formData);
     e.preventDefault();
 
     axios
-      .post("http://localhost:8001/save/image", formData)
+      .post("http://localhost:8001/update/" + paramID.id, formData)
       .then((res) => {
         console.log(res);
-        console.log("Item Added!!");
+        console.log("Item Updated!!");
 
         setName("");
         setDescription("");
@@ -55,34 +66,24 @@ function AddItem() {
         setLoading(false);
         setShowText(true);
 
+     
+
       })
       .catch((err) => {
         alert(err);
       });
 
-      
-      navigate.push("/viewItem");
+      navigate.push('/viewItem')
   };
 
   return (
     <div>
-  
+
       <Container>
         <Paper elevation={7} sx={{ mt: 20 }}>
           <Box sx={{ m: 5 }}>
             <br></br>
-            <IconButton
-              color="warning"
-              aria-label="upload picture"
-              component="span"
-              size="large"
-              onClick={() => {
-                navigate.push("/farmer/items");
-              }}
-            >
-              <ArrowBackIcon />
-            </IconButton>
-            <h2>Add Item for Store</h2>
+            <h2>Update Details of an Item</h2>
 
             <Grid>
               <form
@@ -111,8 +112,9 @@ function AddItem() {
                   label="quentity"
                   value={description}
                   required
+                  multiline
                   inputProps={{ maxLength: 100 }}
-                  erortext="quentity"
+                  erorText="Maximum number of characters enterted"
                   onChange={(e) => {
                     setDescription(e.target.value);
                   }}
@@ -120,18 +122,15 @@ function AddItem() {
                 <br />
                 <br />
 
-                <TextField
+                <Input
                   type="number"
                   variant="outlined"
-                  label="Price"
-                  value={price}
+                  placeholder="Price"
                   required
+                  min={0}
+                  value={price}
                   onChange={(e) => {
-                    if (e.target.value < 0) {
-                      setPrice(0);
-                    } else {
-                      setPrice(e.target.value);
-                    }
+                    setPrice(e.target.value);
                   }}
                 />
                 <br />
@@ -155,15 +154,19 @@ function AddItem() {
                   style={{
                     backgroundColor: "#22b14c",
                   }}
+                  onClick={()=>{
+                    
+
+                  }}
                 >
-                  Add Item
+                  Update Item
                 </Button>
                 {showText ? (
                   <Typography variant="subtitle1" color="#00e676">
-                    Details Added
+                    Details Updated
                   </Typography>
                 ) : null}
-                {loading ? <p> loading...</p>: null}
+                {loading ? <p >loading...</p> : null}
                 <br />
                 <br />
               </form>
@@ -175,4 +178,4 @@ function AddItem() {
   );
 }
 
-export default AddItem;
+export default UpdateItem;
