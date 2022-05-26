@@ -18,8 +18,10 @@ const EmailSend = () =>{
 
     const onSubmit = async e =>{
         e.preventDefault();
-        await axios.post("http://localhost:8001/cart", user).then(response => setMsg(response.data.respMesg));
-        
+        await axios.post("http://localhost:8001/cart", user).then(response => setMsg(response.data.respMesg)
+       
+        );
+      
     };
 
     return(

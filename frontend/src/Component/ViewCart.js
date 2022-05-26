@@ -33,7 +33,7 @@ export default class View extends Component {
   };
 
   onDelete = () => {
-    axios.delete("http://localhost:8001/deleteitem").then((res) => {
+    axios.delete("http://localhost:8001/deletecart").then((res) => {
       alert("All cart Delete");
       this.retrivePosts();
     });
@@ -74,7 +74,7 @@ export default class View extends Component {
                   </button>
                   <br/><br/>
                   <center>
-        <table
+        <table class="table table-sm"
          
           style={{ width: "1100px", padding:"50px" }}
         >

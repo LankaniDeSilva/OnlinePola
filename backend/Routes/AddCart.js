@@ -111,6 +111,27 @@ router.get('/getcarts', (req,res) =>{
     });
 });
 
+router.route("/deletecartitem/:id").delete(async (req, res) =>{
+
+    let userId = req.params.id;
+
+    await Cart.findByIdAndDelete(userId).then(()=>{
+        res.status(200).send({status: "User Delete"});
+    }).catch((err)=>{
+        console.log(err.message);
+        res.status(500).send({status: "Error with delete user", error: err.message});
+    })
+})
+
+router.route("/deletecart").delete(async (req, res) =>{
+
+    await Cart.deleteMany().then(()=>{
+        res.status(200).send({status: "User Delete"});
+    }).catch((err)=>{
+        console.log(err.message);
+        res.status(500).send({status: "Error with delete user", error: err.message});
+    })
+})
 
 
 

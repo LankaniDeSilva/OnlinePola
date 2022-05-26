@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import background from "./images/log.webp"
 
 export default class Login extends Component {
   
@@ -38,12 +38,17 @@ export default class Login extends Component {
     
         axios.post("http://localhost:8001/Login", data)
         .then(res=>{alert(res.data.message)
-            
+          this.props.history.push(`/home`)
+          window.location.reload();
             })
           }
 render(){
     return (
-      <div >
+      <div  style={{ backgroundImage: `url(${background})`,backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      margin:"20px",
+      height:"500px",
+      backgroundRepeat: 'no-repeat'}}>
         
         <center>
        

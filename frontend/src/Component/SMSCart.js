@@ -34,7 +34,7 @@ function Sms(){
                                               borderLeft:"6px solid   #66ff66",
                                               borderBottom:"6px solid   #66ff66"}}>
               <center>
-                    <h1>Get SMS Massege</h1>
+                    <h1>SMS Services</h1>
               </center>
               <br/>
              

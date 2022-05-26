@@ -1,19 +1,13 @@
 import React from "react";
-import img from "./images/veg.jpg"
+import img from "./images/food.png"
 
 function home() {
   return (
     <div>
-      <table>
-        <tr>
-          <td>
-
-          </td>
-          <td>
+     <br/>
+      <center>
               <img src={img} style={{width:"800px", height:"500px"}}/>
-          </td>
-        </tr>
-      </table>
+     </center> 
     </div>
   );
 }

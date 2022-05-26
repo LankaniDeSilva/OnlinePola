@@ -43,7 +43,7 @@ export default class App extends Component{
              <Route path="/additem"  exact component={AddItem}></Route>
              <Route path="/edit/:id"  exact component={CartAdd}></Route>
              <Route path="/edit/:id"  exact component={ViewCart}></Route>
-            
+             <Route path="/mycart"  exact component={ViewCart}></Route>
            
     
          

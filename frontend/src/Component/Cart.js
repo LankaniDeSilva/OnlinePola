@@ -52,6 +52,10 @@ export default class GetCart extends Component {
          
           <br />
           <center>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert" style={{width:"700px"}}>
+            <strong>Welcome Customer!</strong> Choose your products here..............
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
           <div className="search" style={{ width: "400px",paddingLeft:"50px" }}>
             <lable>Search Items :</lable>
             <input
@@ -61,6 +65,10 @@ export default class GetCart extends Component {
               onChange={this.handleSearchArea}
             />
           </div>
+          <br/>
+          <a href="/mycart">
+          <button type="button" class="btn btn-info">View My Cart</button>
+          </a>
           <table
            
           >
