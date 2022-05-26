@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class Register extends Component {
+export default class Payment extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -53,7 +53,7 @@ render(){
          
         <center>
             <form style={{background:"#e6ffe6", margin:"50px", padding:"30px", width:"500px", borderRadius:"40px",borderLeft:"4px solid #4dff4d",borderRight:"4px solid #4dff4d"}}>
-            <h1>Register</h1><br/>
+            <h1>Payment</h1><br/>
             <div class="mb-3">
             <label  class="form-label">Enter Cardnumber :</label><br/>
                   <input
