@@ -121,7 +121,7 @@ export default class View extends Component {
          
         </table>
    <br/>
-            <a href="/Payment">
+            <a href="/pay">
             <button type="button" className="btn btn-success">Payment</button>
             </a>  
             </center>

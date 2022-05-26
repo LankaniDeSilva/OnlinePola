@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-
-export default class Payment extends Component {
+export default class PayMobile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          cardnumber: "",
+          name: "",
+          mobilenumber: "",
           amount:"",
-          cvc:"",
-          holder:"",
+          
         
         };
       }
@@ -26,18 +25,18 @@ export default class Payment extends Component {
       onSubmit = (e) => {
         e.preventDefault();
       
-        const {cardnumber, amount, cvc, holder}   = this.state;
+        const {name, mobilenumber, amount}   = this.state;
        
         const data = {
-          cardnumber:cardnumber,
-          amount:amount,
-          cvc:cvc,
-          holder:holder
+          name:name,
+          mobilenumber:mobilenumber,
+          amount:amount
+          
          
         };
         console.log(data);
     
-        axios.post("http://localhost:8001/payment", data) 
+        axios.post("http://localhost:8001/paymentmobile", data) 
         .then(res=>{alert("Payment success")
        
            });
@@ -54,20 +53,32 @@ render(){
          
         <center>
             <form style={{background:"#e6ffe6", margin:"50px", padding:"30px", width:"500px", borderRadius:"40px",borderLeft:"4px solid #4dff4d",borderRight:"4px solid #4dff4d"}}>
-            <h1>Payment</h1><br/>
+            <h1>Payment By Mobile</h1><br/>
             <div class="mb-3">
-            <label  class="form-label">Enter Cardnumber :</label><br/>
+            <label  class="form-label">Enter Name :</label><br/>
                   <input
                     type="text"
-                    id="cardnumber"
+                    id="name"
                     class=""
-                    name="cardnumber"
-                    value={this.state.cardnumber}
+                    name="name"
+                    value={this.state.name}
                     onChange={this.handleInputChange}
                     style={{width:"350px", height:"36px"}}
                   />
                    
               </div>
+
+              <div class="mb-3">
+            <label  class="form-label">Enter Mobile Number :</label><br/>
+                  <input
+                    type="number"
+                    id="mobilenumber"
+                    name='mobilenumber'
+                    value={this.state.cvc}
+                    onChange={this.handleInputChange}
+                    style={{width:"350px", height:"36px"}}
+                  />
+                </div>
             
               <div class="mb-3">
             <label  class="form-label">Enter Amount:</label><br/>
@@ -81,30 +92,7 @@ render(){
                   />
                 </div>
             
-                <div class="mb-3">
-            <label  class="form-label">Enter CVC :</label><br/>
-                  <input
-                    type="number"
-                    id="cvc"
-                    name='cvc'
-                    value={this.state.cvc}
-                    onChange={this.handleInputChange}
-                    style={{width:"350px", height:"36px"}}
-                  />
-                </div>
-             
-                <div class="mb-3">
-            <label  class="form-label">Enter Holder:</label><br/>
-                  <input
-                    type="text"
-                    id="holder"
-                    name='holder'
-                    value={this.state.holder}
-                    onChange={this.handleInputChange}
-                    style={{width:"350px", height:"36px"}}
-                  />
-                </div>
-            
+                
              
                 <button
                   type="submit"

@@ -17,6 +17,8 @@ import SMSCart from "./Component/SMSCart";
 import EmailSend from "./Component/EmailSend";
 
 import Payment from "./Component/Payment";
+import PaymentByMobile from "./Component/PaymentByMobile";
+import Pay from "./Component/Pay";
 import ViewItem from "./Component/ViewItem";
 import UpdateItem from "./Component/UpdateItem";
  
@@ -68,6 +70,9 @@ export default class App extends Component{
 
 
             <Route path="/payment"  exact component={Payment}></Route>
+            <Route path="/PayMobile"  exact component={PaymentByMobile}></Route>
+            <Route path="/pay"  exact component={Pay}></Route>
+
 
 
 
